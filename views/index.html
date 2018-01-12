@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CDDH-搜题器</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body>
+    <div id="app" class="app-container">
+        <section class="left-side">
+            <div class="action-wrapper">
+                <button class="btn-start" @click="start">{{startBtnText}}</button>
+                <div id="tip">{{startTip}}</div>
+            </div>
+            <div class="question" v-if="question.title.length > 0">
+                <div class="title">{{question.title}}</div>
+                <ol class="options">
+                    <li class="option">{{question.options[0]}}</li>
+                    <li class="option">{{question.options[1]}}</li>
+                    <li class="option">{{question.options[2]}}</li>
+                </ol>
+            </div>
+            <div class="charts-wrapper">
+                <div class="sogou-chart-wrapper">
+                    <div id="sogou-chart" class="sogou-chart"></div>
+                </div>
+                <div class="qh360-chart-wrapper">
+                    <div id="qh360-chart" class="qh360-chart"></div>
+                </div>
+            </div>
+        </section>
+        <section class="right-side">
+            <iframe :src="iframe" class="iframe" frameborder="0"></iframe>
+        </section>
+    </div>
+
+    <script src="/javascripts/jquery.min.js"></script>
+    <script src="/javascripts/echarts.min.js"></script>
+    <script src="/javascripts/vue.min.js"></script>
+    <script src="/javascripts/app.js"></script>
+</body>
+
+</html>
